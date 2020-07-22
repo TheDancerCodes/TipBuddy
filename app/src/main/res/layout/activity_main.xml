@@ -81,8 +81,8 @@
         android:ems="6"
         android:inputType="numberDecimal"
         android:textSize="34sp"
-        app:layout_constraintStart_toEndOf="@+id/tvBaseAmountLabel"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvBaseAmountLabel" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvBaseAmountLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvBaseAmountLabel" />
 
     <TextView
         android:id="@+id/tvTipPercent"
