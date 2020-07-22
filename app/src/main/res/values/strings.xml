@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TipBuddy</string>
+    <string name="tvTipPercent">15%</string>
+    <string name="base">Base:</string>
+    <string name="tip">Tip:</string>
+    <string name="total">Total</string>
 </resources>
