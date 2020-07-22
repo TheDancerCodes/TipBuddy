@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Set initial SeekBar and TextView Tip value when you initialize the app.
+        tipSeekBar.progress = INITIAL_TIP_PERCENT
+        tvTipPercent.text = "$INITIAL_TIP_PERCENT%"
+
         // 1. Notifies you that the user has changed the SeekBar
         tipSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
