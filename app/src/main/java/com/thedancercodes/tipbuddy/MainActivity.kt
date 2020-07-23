@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        // 6. Add a listener for when we update the base value edit text
-        baseEditText.addTextChangedListener(object : TextWatcher {
+        // 6. Add a listener for when we update the bill value edit text
+        billEditText.addTextChangedListener(object : TextWatcher {
 
             // Called after the user has changed some text
             override fun afterTextChanged(editable: Editable?) {
@@ -70,12 +70,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // 7. Everytime the base amount changes, we want to calculate the tip and total values.
+    // 7. Everytime the bill amount changes, we want to calculate the tip and total values.
     fun computeTipAndTotal() {
 
         // 10 - Conditional check to fix java.lang.NumberFormatException: empty String crash,
         // when edit text is empty.
-        if (baseEditText.text.isEmpty()) {
+        if (billEditText.text.isEmpty()) {
 
             // 10b) Update values of tip and total to empty & return here
             tvTipAmount.text = "$INITIAL_EMPTY_VALUE"
@@ -83,21 +83,21 @@ class MainActivity : AppCompatActivity() {
             return // This ensures the logic in 7b isn't run. 👍
         }
 
-        //7b) Get the value of the base and tip percent
-        // Once we have these values, we can calculate the amount for the tip, (tip% x base)
-        // We can also calculate the value for the total (tip + base)
-        // Base value - value inside edit text
+        //7b) Get the value of the bill and tip percent
+        // Once we have these values, we can calculate the amount for the tip, (tip% x bill)
+        // We can also calculate the value for the total (tip + bill)
+        // Bill value - value inside edit text
         // Call to string to change int to string. toDouble so that we can do math.
-        val baseAmount = baseEditText.text.toString().toDouble()
+        val billAmount = billEditText.text.toString().toDouble()
 
         // Tip %age - The progress of the SeekBar
         val tipPercent = tipSeekBar.progress
 
         // Calculate the tip amount
-        val tipAmount = baseAmount * tipPercent / 100
+        val tipAmount = billAmount * tipPercent / 100
 
         // Calculate total amount
-        val totalAmount = baseAmount + tipAmount
+        val totalAmount = billAmount + tipAmount
 
         // 8) NOTE: After the calculation, place the tipAmount and totalAmount, into
         // the respective textViews.
